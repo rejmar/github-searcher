@@ -11,7 +11,8 @@ const GithubSearcher: React.FunctionComponent = () => {
         "d-flex",
         "text-dark",
         "justify-content-center",
-        "p-2"
+        "w-100",
+        "h-100"
       )}
     >
       <SearchBar setUser={setUser} />
