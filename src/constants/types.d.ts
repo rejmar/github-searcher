@@ -16,5 +16,5 @@ export type FetchGithubUserResponse = {
 };
 
 export type FetchUsersReposResponse = {
-  data: UserRepos;
+  data: UserRepos[];
 };

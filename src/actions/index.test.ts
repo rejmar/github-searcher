@@ -48,11 +48,13 @@ describe("fetchUserInfo action tests", () => {
 describe("fetchUserRepos action tests", () => {
   let mock: MockAdapter;
 
-  const correctUserReposData: UserRepos = {
-    name: "test-repo",
-    url: "https://test-repo.com",
-    stargazers_count: 1000,
-  };
+  const correctUserReposData: UserRepos[] = [
+    {
+      name: "test-repo",
+      url: "https://test-repo.com",
+      stargazers_count: 1000,
+    },
+  ];
   const correctResponseData: FetchUsersReposResponse = {
     data: correctUserReposData,
   };
@@ -70,7 +72,7 @@ describe("fetchUserRepos action tests", () => {
       .onGet("https://api.github.com/users/test-user/repos")
       .reply(200, correctResponseData);
 
-    await fetchUsersRepos("test-user").then((res: UserRepos) => {
+    await fetchUsersRepos("test-user").then((res: UserRepos[]) => {
       expect(res).toEqual(correctResponseData);
     });
   });
