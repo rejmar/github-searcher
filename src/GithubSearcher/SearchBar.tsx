@@ -1,21 +1,23 @@
 import classNames from "classnames";
 import React, { useState } from "react";
+import { SEARCH_BAR_PLACEHOLDER, SEARCH_BUTTON } from "../constants";
 
 type SearchBarProps = {
-  setUser: any;
+  onUserSet: (user: string) => void;
 };
 
 const SearchBar: React.FunctionComponent<SearchBarProps> = ({
-  setUser,
+  onUserSet,
 }: SearchBarProps) => {
-  const [userToSearch, setUserToSearch] = useState<any>({});
+  const [userToSearch, setUserToSearch] = useState<string>("");
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleUserToSearchSet = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
     setUserToSearch(event.target.value);
   };
-
-  const handleSetUser = (): void => {
-    setUser(userToSearch);
+  const handleUserSearch = (): void => {
+    onUserSet(userToSearch);
   };
 
   return (
@@ -25,21 +27,27 @@ const SearchBar: React.FunctionComponent<SearchBarProps> = ({
         "d-flex",
         "justify-content-center",
         "w-100",
-        "h-30",
+        "mh-30",
         "bg-white",
         "border-bottom",
-        "border-danger"
+        "border-danger",
+        "p-4"
       )}
     >
       <input
         data-testid={"search-bar__input"}
-        className={classNames("h-10")}
-        placeholder={"Search for users"}
-        value={userToSearch.login ?? undefined}
-        onChange={handleSearch}
+        className={classNames("")}
+        placeholder={SEARCH_BAR_PLACEHOLDER}
+        value={userToSearch ?? undefined}
+        onChange={handleUserToSearchSet}
       />
-      <button data-testid={"search-bar__button"} onClick={handleSetUser}>
-        Search
+      <button
+        data-testid={"search-bar__button"}
+        className={classNames("btn", "btn-dark", "ml-4")}
+        onClick={handleUserSearch}
+        disabled={!userToSearch}
+      >
+        {SEARCH_BUTTON}
       </button>
     </div>
   );
