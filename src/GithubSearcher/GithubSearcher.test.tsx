@@ -4,9 +4,10 @@ import GithubSearcher from ".";
 
 describe("GithubSearcher component tests", () => {
   it("should render", () => {
-    const { getByTestId } = render(<GithubSearcher />);
+    const { getByTestId, queryByTestId } = render(<GithubSearcher />);
+
     expect(getByTestId(/github-searcher/)).toBeInTheDocument();
     expect(getByTestId(/^search-bar$/)).toBeInTheDocument();
-    expect(getByTestId(/^user-details$/)).toBeInTheDocument();
+    expect(queryByTestId(/^user-details$/)).toBeNull();
   });
 });

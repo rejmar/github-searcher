@@ -27,10 +27,8 @@ const SearchBar: React.FunctionComponent<SearchBarProps> = ({
         "d-flex",
         "justify-content-center",
         "w-100",
-        "mh-30",
         "bg-white",
         "border-bottom",
-        "border-danger",
         "p-4"
       )}
     >

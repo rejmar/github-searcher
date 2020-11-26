@@ -6,7 +6,7 @@ import SearchBar from "./SearchBar";
 import UserDetails from "./UserDetails";
 
 const GithubSearcher: React.FunctionComponent = () => {
-  const [user, setUser] = useState<GithubUser>({});
+  const [user, setUser] = useState<GithubUser>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
@@ -36,9 +36,7 @@ const GithubSearcher: React.FunctionComponent = () => {
       )}
     >
       <SearchBar onUserSet={handleUserSearch} />
-      <UserDetails user={user} />
-      {/* <UserDetails />
-      <Repos /> */}
+      {user && <UserDetails user={user} />}
     </div>
   );
 };
