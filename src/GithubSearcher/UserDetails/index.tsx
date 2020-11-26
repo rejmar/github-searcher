@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import React from "react";
-import { GithubUser } from "../../constants/types";
+import { GithubUserType } from "../../constants/types";
 import UserInfo from "./UserInfo";
 import UserRepos from "./UserRepos";
 
 type UserDetailsProps = {
-  user: GithubUser;
+  user: GithubUserType;
 };
 const UserDetails: React.FunctionComponent<UserDetailsProps> = ({
   user,
@@ -13,7 +13,15 @@ const UserDetails: React.FunctionComponent<UserDetailsProps> = ({
   return (
     <div
       data-testid={"user-details"}
-      className={classNames("d-flex", "flex-column")}
+      className={classNames(
+        "d-flex",
+        "flex-column",
+        "w-100",
+        "h-100",
+        "justify-content-center",
+        "border",
+        "border-primary"
+      )}
     >
       <UserInfo user={user} />
       <UserRepos user={user} />

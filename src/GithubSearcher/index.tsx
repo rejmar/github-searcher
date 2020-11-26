@@ -1,19 +1,19 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 import { fetchUserInfo } from "../actions";
-import { GithubUser } from "../constants/types";
+import { GithubUserType } from "../constants/types";
 import SearchBar from "./SearchBar";
 import UserDetails from "./UserDetails";
 
 const GithubSearcher: React.FunctionComponent = () => {
-  const [user, setUser] = useState<GithubUser>();
+  const [user, setUser] = useState<GithubUserType>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
   const handleUserSearch = (user: string) => {
     setIsLoading(true);
     fetchUserInfo(user)
-      .then((res: GithubUser) => {
+      .then((res: GithubUserType) => {
         res && setUser(res);
       })
       .catch((err: string) => {

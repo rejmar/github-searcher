@@ -1,20 +1,20 @@
-export type GithubUser = {
+export type GithubUserType = {
   avatar_url?: string;
   bio?: string;
   name?: string;
   login?: string;
 };
 
-export type UserRepos = {
+export type UserReposType = {
   name?: string;
-  url?: string;
+  html_url?: string;
   stargazers_count: number;
 };
 
-export type FetchGithubUserResponse = {
-  data: GithubUser;
+export type FetchGithubUserResponseType = {
+  data: GithubUserType;
 };
 
-export type FetchUsersReposResponse = {
-  data: UserRepos[];
+export type FetchUsersReposResponseType = {
+  data: UserReposType[];
 };

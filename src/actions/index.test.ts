@@ -2,17 +2,17 @@ import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import { fetchUserInfo, fetchUsersRepos } from ".";
 import {
-  FetchGithubUserResponse,
-  FetchUsersReposResponse,
-  GithubUser,
-  UserRepos,
+  FetchGithubUserResponseType,
+  FetchUsersReposResponseType,
+  GithubUserType,
+  UserReposType,
 } from "../constants/types";
 
 describe("fetchUserInfo action tests", () => {
   let mock: MockAdapter;
 
-  const correctUserData: GithubUser = { login: "test-user" };
-  const correctResponseData: FetchGithubUserResponse = {
+  const correctUserData: GithubUserType = { login: "test-user" };
+  const correctResponseData: FetchGithubUserResponseType = {
     data: correctUserData,
   };
   const incorrectResponseData = "Request failed with status code 404";
@@ -29,7 +29,7 @@ describe("fetchUserInfo action tests", () => {
       .onGet("https://api.github.com/users/test-user")
       .reply(200, correctResponseData);
 
-    await fetchUserInfo("test-user").then((res: GithubUser) => {
+    await fetchUserInfo("test-user").then((res: GithubUserType) => {
       expect(res).toEqual(correctResponseData);
     });
   });
@@ -48,14 +48,14 @@ describe("fetchUserInfo action tests", () => {
 describe("fetchUserRepos action tests", () => {
   let mock: MockAdapter;
 
-  const correctUserReposData: UserRepos[] = [
+  const correctUserReposData: UserReposType[] = [
     {
       name: "test-repo",
-      url: "https://test-repo.com",
+      html_url: "https://test-repo.com",
       stargazers_count: 1000,
     },
   ];
-  const correctResponseData: FetchUsersReposResponse = {
+  const correctResponseData: FetchUsersReposResponseType = {
     data: correctUserReposData,
   };
   const incorrectResponseData = "Request failed with status code 404";
@@ -72,7 +72,7 @@ describe("fetchUserRepos action tests", () => {
       .onGet("https://api.github.com/users/test-user/repos")
       .reply(200, correctResponseData);
 
-    await fetchUsersRepos("test-user").then((res: UserRepos[]) => {
+    await fetchUsersRepos("test-user").then((res: UserReposType[]) => {
       expect(res).toEqual(correctResponseData);
     });
   });

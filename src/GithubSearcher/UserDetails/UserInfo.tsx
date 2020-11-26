@@ -1,14 +1,17 @@
 import React from "react";
-import { GithubUser } from "../../constants/types";
+import { GithubUserType } from "../../constants/types";
 
 type UserInfoProps = {
-  user: GithubUser;
+  user: GithubUserType;
 };
 const UserInfo: React.FunctionComponent<UserInfoProps> = ({
   user,
 }: UserInfoProps) => {
   return (
-    <div data-testid={"user-info"}>
+    <div
+      data-testid={"user-info"}
+      className={"d-flex flex-column justify-content-center w-100"}
+    >
       <img
         data-testid={"user-info__avatar"}
         src={user.avatar_url ?? ""}
