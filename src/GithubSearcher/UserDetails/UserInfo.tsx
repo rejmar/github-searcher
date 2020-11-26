@@ -12,15 +12,17 @@ const UserInfo: React.FunctionComponent<UserInfoProps> = ({
       data-testid={"user-info"}
       className={"d-flex flex-column justify-content-center w-100"}
     >
-      <img
-        data-testid={"user-info__avatar"}
-        src={user.avatar_url ?? ""}
-        alt="Avatar"
-        width="100"
-        height="100"
-      />
-      <div data-testid={"user-info__name"}>{user.name}</div>
-      <div data-testid={"user-info__bio"}>{user.bio}</div>
+      <header data-testid={"user-info__header"} className={"d-flex flex-row"}>
+        <img
+          data-testid={"user-info__header__avatar"}
+          src={user.avatar_url ?? ""}
+          alt="Avatar"
+          width="100"
+          height="100"
+        />
+        <h3 data-testid={"user-info__header__name"}>{user.name ?? ""}</h3>
+      </header>
+      <p data-testid={"user-info__bio"}>{user.bio ?? ""}</p>
     </div>
   );
 };

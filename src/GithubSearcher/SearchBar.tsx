@@ -21,7 +21,7 @@ const SearchBar: React.FunctionComponent<SearchBarProps> = ({
   };
 
   return (
-    <div
+    <header
       data-testid={"search-bar"}
       className={classNames(
         "d-flex",
@@ -47,7 +47,7 @@ const SearchBar: React.FunctionComponent<SearchBarProps> = ({
       >
         {SEARCH_BUTTON}
       </button>
-    </div>
+    </header>
   );
 };
 
