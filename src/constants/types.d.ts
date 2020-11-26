@@ -18,3 +18,7 @@ export type FetchGithubUserResponseType = {
 export type FetchUsersReposResponseType = {
   data: UserReposType[];
 };
+
+export type FetchErrorType = {
+  message: string;
+};
