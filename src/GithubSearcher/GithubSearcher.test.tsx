@@ -8,6 +8,7 @@ describe("GithubSearcher component tests", () => {
 
     expect(getByTestId(/github-searcher/)).toBeInTheDocument();
     expect(getByTestId(/^search-bar$/)).toBeInTheDocument();
+    expect(getByTestId(/^main$/)).toBeInTheDocument();
     expect(queryByTestId(/^user-details$/)).toBeNull();
   });
 });

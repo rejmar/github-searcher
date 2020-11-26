@@ -1,14 +1,26 @@
 import Axios from "axios";
-import { GithubUserType, UserReposType } from "../constants/types";
+import { GITHUB_API_URL } from "../config";
+import {
+  FetchGithubUserResponseType,
+  FetchUsersReposResponseType,
+} from "../constants/types";
 
-export const fetchUserInfo = async (login: string): Promise<GithubUserType> =>
-  await Axios.get("https://api.github.com/users/" + login)
-    .then((res: any) => res.data)
-    .catch((err: any) => err.message);
+export const fetchUserInfo = async (
+  login: string
+): Promise<FetchGithubUserResponseType> =>
+  await Axios.get(`${GITHUB_API_URL}/users/${login}`, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
 
 export const fetchUsersRepos = async (
   login: string
-): Promise<UserReposType[]> =>
-  await Axios.get(`https://api.github.com/users/${login}/repos`)
-    .then((res: any) => res.data)
-    .catch((err: any) => err.message);
+): Promise<FetchUsersReposResponseType> =>
+  await Axios.get(`${GITHUB_API_URL}/users/${login}/repos`, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
