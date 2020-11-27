@@ -27,48 +27,54 @@ describe("UserDetails component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="d-flex flex-column w-100 h-100 justify-content-center border border-primary"
+          class="w-100"
           data-testid="user-details"
         >
           <div
-            class="d-flex flex-column justify-content-center w-100"
+            class="Container"
             data-testid="user-info"
           >
             <header
-              class="d-flex flex-row"
+              class="d-flex flex-row mb-3"
               data-testid="user-info__header"
             >
               <img
                 alt="Avatar"
+                class="Avatar"
                 data-testid="user-info__header__avatar"
-                height="100"
                 src="test-avatar"
-                width="100"
               />
               <h3
+                class="Name"
                 data-testid="user-info__header__name"
               >
                 Test Login
               </h3>
             </header>
             <p
+              class="Bio"
               data-testid="user-info__bio"
             >
               test-bio
             </p>
           </div>
-          <div
-            class="d-flex flex-column justify-content-center w-100"
+          <section
+            class="d-flex flex-column"
             data-testid="user-repos"
           >
+            <h4
+              class="my-3"
+            >
+              Top repositories
+            </h4>
             <a
-              class=""
+              class="Repo"
               data-testid="user-repos__undefined"
               href="test-url"
               rel="noreferrer"
               target="_blank"
             />
-          </div>
+          </section>
         </div>
       </div>
     `);
@@ -82,31 +88,32 @@ describe("UserDetails component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="d-flex flex-column w-100 h-100 justify-content-center border border-primary"
+          class="w-100"
           data-testid="user-details"
         >
           <div
-            class="d-flex flex-column justify-content-center w-100"
+            class="Container"
             data-testid="user-info"
           >
             <header
-              class="d-flex flex-row"
+              class="d-flex flex-row mb-3"
               data-testid="user-info__header"
             >
               <img
                 alt="Avatar"
+                class="Avatar"
                 data-testid="user-info__header__avatar"
-                height="100"
                 src="test-avatar"
-                width="100"
               />
               <h3
+                class="Name"
                 data-testid="user-info__header__name"
               >
                 Test Login
               </h3>
             </header>
             <p
+              class="Bio"
               data-testid="user-info__bio"
             >
               test-bio
@@ -125,44 +132,50 @@ describe("UserDetails component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="d-flex flex-column w-100 h-100 justify-content-center border border-primary"
+          class="w-100"
           data-testid="user-details"
         >
           <div
-            class="d-flex flex-column justify-content-center w-100"
+            class="Container"
             data-testid="user-info"
           >
             <header
-              class="d-flex flex-row"
+              class="d-flex flex-row mb-3"
               data-testid="user-info__header"
             >
               <img
                 alt="Avatar"
+                class="Avatar"
                 data-testid="user-info__header__avatar"
-                height="100"
                 src=""
-                width="100"
               />
               <h3
+                class="Name"
                 data-testid="user-info__header__name"
               />
             </header>
             <p
+              class="Bio"
               data-testid="user-info__bio"
             />
           </div>
-          <div
-            class="d-flex flex-column justify-content-center w-100"
+          <section
+            class="d-flex flex-column"
             data-testid="user-repos"
           >
+            <h4
+              class="my-3"
+            >
+              Top repositories
+            </h4>
             <a
-              class=""
+              class="Repo"
               data-testid="user-repos__undefined"
               href="test-url"
               rel="noreferrer"
               target="_blank"
             />
-          </div>
+          </section>
         </div>
       </div>
     `);
@@ -174,29 +187,30 @@ describe("UserDetails component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="d-flex flex-column w-100 h-100 justify-content-center border border-primary"
+          class="w-100"
           data-testid="user-details"
         >
           <div
-            class="d-flex flex-column justify-content-center w-100"
+            class="Container"
             data-testid="user-info"
           >
             <header
-              class="d-flex flex-row"
+              class="d-flex flex-row mb-3"
               data-testid="user-info__header"
             >
               <img
                 alt="Avatar"
+                class="Avatar"
                 data-testid="user-info__header__avatar"
-                height="100"
                 src=""
-                width="100"
               />
               <h3
+                class="Name"
                 data-testid="user-info__header__name"
               />
             </header>
             <p
+              class="Bio"
               data-testid="user-info__bio"
             />
           </div>

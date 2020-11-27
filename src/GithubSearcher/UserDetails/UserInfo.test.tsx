@@ -23,27 +23,28 @@ describe("UserInfo component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="d-flex flex-column justify-content-center w-100"
+          class="Container"
           data-testid="user-info"
         >
           <header
-            class="d-flex flex-row"
+            class="d-flex flex-row mb-3"
             data-testid="user-info__header"
           >
             <img
               alt="Avatar"
+              class="Avatar"
               data-testid="user-info__header__avatar"
-              height="100"
               src="test-avatar"
-              width="100"
             />
             <h3
+              class="Name"
               data-testid="user-info__header__name"
             >
               Test Login
             </h3>
           </header>
           <p
+            class="Bio"
             data-testid="user-info__bio"
           >
             test-bio
@@ -59,25 +60,26 @@ describe("UserInfo component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="d-flex flex-column justify-content-center w-100"
+          class="Container"
           data-testid="user-info"
         >
           <header
-            class="d-flex flex-row"
+            class="d-flex flex-row mb-3"
             data-testid="user-info__header"
           >
             <img
               alt="Avatar"
+              class="Avatar"
               data-testid="user-info__header__avatar"
-              height="100"
               src=""
-              width="100"
             />
             <h3
+              class="Name"
               data-testid="user-info__header__name"
             />
           </header>
           <p
+            class="Bio"
             data-testid="user-info__bio"
           />
         </div>

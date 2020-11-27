@@ -22,12 +22,17 @@ describe("UserRepos component tests", () => {
     expect(getByTestId(/^user-repos__test-name$/)).toBeInTheDocument();
     expect(container).toMatchInlineSnapshot(`
       <div>
-        <div
-          class="d-flex flex-column justify-content-center w-100"
+        <section
+          class="d-flex flex-column"
           data-testid="user-repos"
         >
+          <h4
+            class="my-3"
+          >
+            Top repositories
+          </h4>
           <a
-            class=""
+            class="Repo"
             data-testid="user-repos__test-name"
             href="test-url"
             rel="noreferrer"
@@ -35,7 +40,7 @@ describe("UserRepos component tests", () => {
           >
             test-name
           </a>
-        </div>
+        </section>
       </div>
     `);
   });
@@ -45,10 +50,16 @@ describe("UserRepos component tests", () => {
 
     expect(container).toMatchInlineSnapshot(`
       <div>
-        <div
-          class="d-flex flex-column justify-content-center w-100"
+        <section
+          class="d-flex flex-column"
           data-testid="user-repos"
-        />
+        >
+          <h4
+            class="my-3"
+          >
+            Top repositories
+          </h4>
+        </section>
       </div>
     `);
   });

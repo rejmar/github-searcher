@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import React, { useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { fetchUserInfo, fetchUsersRepos } from "../actions";
