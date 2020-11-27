@@ -5,20 +5,20 @@ import {
   FetchUsersReposResponseType,
 } from "../constants/types";
 
-export const fetchUserInfo = async (
+export const fetchUserInfo = (
   login: string
 ): Promise<FetchGithubUserResponseType> =>
-  await Axios.get(`${GITHUB_API_URL}/users/${login}`, {
+  Axios.get(`${GITHUB_API_URL}/users/${login}`, {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
   });
 
-export const fetchUsersRepos = async (
+export const fetchUsersRepos = (
   login: string
 ): Promise<FetchUsersReposResponseType> =>
-  await Axios.get(`${GITHUB_API_URL}/users/${login}/repos`, {
+  Axios.get(`${GITHUB_API_URL}/users/${login}/repos`, {
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",

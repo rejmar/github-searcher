@@ -25,8 +25,8 @@ const GithubSearcher: React.FunctionComponent = () => {
     setRepos([]);
   };
 
-  const generateErrorMessage = (message: string): string =>
-    message.includes("404") ? NOT_FOUND_ERROR_MESSAGE : ERROR_MESSAGE;
+  const generateErrorMessage = (error: FetchErrorType): string =>
+    error?.response?.status === 404 ? NOT_FOUND_ERROR_MESSAGE : ERROR_MESSAGE;
 
   const handleUserSearch = (user: string) => {
     setIsLoading(true);
@@ -38,7 +38,7 @@ const GithubSearcher: React.FunctionComponent = () => {
           res.data && setUser(res.data);
         })
         .catch((err: FetchErrorType) => {
-          err.message && setError(generateErrorMessage(err.message));
+          err && setError(generateErrorMessage(err));
           setUser({});
         })
         .finally(() => {
@@ -49,7 +49,7 @@ const GithubSearcher: React.FunctionComponent = () => {
           res.data && setRepos(res.data);
         })
         .catch((err: FetchErrorType) => {
-          setError(generateErrorMessage(err.message));
+          err && setError(generateErrorMessage(err));
           setRepos([]);
         })
         .finally(() => {

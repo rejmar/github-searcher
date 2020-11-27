@@ -21,4 +21,7 @@ export type FetchUsersReposResponseType = {
 
 export type FetchErrorType = {
   message: string;
+  response: {
+    status: number;
+  };
 };

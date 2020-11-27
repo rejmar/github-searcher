@@ -19,6 +19,9 @@ describe("fetchUserInfo action tests", () => {
   };
   const incorrectResponseData: FetchErrorType = {
     message: "Request failed with status code 404",
+    response: {
+      status: 404,
+    },
   };
 
   beforeEach(() => {
@@ -28,25 +31,26 @@ describe("fetchUserInfo action tests", () => {
     mock.reset();
   });
 
-  it("should resolve promise", async () => {
+  it("should resolve promise", () => {
     mock
       .onGet(GITHUB_API_URL + "/users/test-user")
       .reply(200, correctResponseData);
 
-    await fetchUserInfo("test-user").then(
-      (res: FetchGithubUserResponseType) => {
-        expect(res.data).toEqual(correctResponseData);
-      }
-    );
+    fetchUserInfo("test-user").then((res: FetchGithubUserResponseType) => {
+      expect(res.data).toEqual(correctResponseData);
+    });
   });
 
-  it("should reject promise", async () => {
+  it("should reject promise", () => {
     mock
       .onGet(GITHUB_API_URL + "/users/incorrect-test-user")
       .reply(404, incorrectResponseData);
 
-    await fetchUserInfo("incorrect-test-user").catch((res: FetchErrorType) => {
+    fetchUserInfo("incorrect-test-user").catch((res: FetchErrorType) => {
       expect(res.message).toEqual(incorrectResponseData.message);
+      expect(res.response.status).toEqual(
+        incorrectResponseData.response.status
+      );
     });
   });
 });
@@ -66,6 +70,9 @@ describe("fetchUserRepos action tests", () => {
   };
   const incorrectResponseData: FetchErrorType = {
     message: "Request failed with status code 404",
+    response: {
+      status: 404,
+    },
   };
 
   beforeEach(() => {
@@ -75,25 +82,26 @@ describe("fetchUserRepos action tests", () => {
     mock.reset();
   });
 
-  it("should resolve promise", async () => {
+  it("should resolve promise", () => {
     mock
       .onGet(GITHUB_API_URL + "/users/test-user/repos")
       .reply(200, correctResponseData);
 
-    await fetchUsersRepos("test-user").then(
-      (res: FetchUsersReposResponseType) => {
-        expect(res.data).toEqual(correctResponseData);
-      }
-    );
+    fetchUsersRepos("test-user").then((res: FetchUsersReposResponseType) => {
+      expect(res.data).toEqual(correctResponseData);
+    });
   });
 
-  it("should reject promise", async () => {
+  it("should reject promise", () => {
     mock
       .onGet(GITHUB_API_URL + "/users/incorrect-test-user/repos")
       .reply(404, incorrectResponseData);
 
-    await fetchUserInfo("incorrect-test-user").catch((res: FetchErrorType) => {
+    fetchUserInfo("incorrect-test-user").catch((res: FetchErrorType) => {
       expect(res.message).toEqual(incorrectResponseData.message);
+      expect(res.response.status).toEqual(
+        incorrectResponseData.response.status
+      );
     });
   });
 });
