@@ -35,7 +35,10 @@ const GithubSearcher: React.FunctionComponent = () => {
           res.data && setUser(res.data);
         })
         .catch((err: FetchErrorType) => {
-          err.message && setError(ERROR_MESSAGE);
+          err.message &&
+            setError(
+              err.message.includes("404") ? "User not found!" : ERROR_MESSAGE
+            );
           setUser({});
         })
         .finally(() => {
@@ -46,7 +49,9 @@ const GithubSearcher: React.FunctionComponent = () => {
           res.data && setRepos(res.data);
         })
         .catch((err: FetchErrorType) => {
-          err.message && setError(ERROR_MESSAGE);
+          setError(
+            err.message.includes("404") ? "User not found" : ERROR_MESSAGE
+          );
           setRepos([]);
         })
         .finally(() => {
@@ -70,7 +75,7 @@ const GithubSearcher: React.FunctionComponent = () => {
       <main
         data-testid={"main"}
         className={
-          "d-flex flex-column justify-content-center align-content-center w-100 h-100"
+          "d-flex flex-column justify-content-center align-content-center w-100 h-100 bg-light"
         }
       >
         {isLoading && (
