@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .gitignore .",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|ts|tsx|json)\"",
-    "format": "yarn run prettier --write"
+    "format": "yarn run prettier --write",
+    "analyze": "source-map-explorer 'build/static/js/*.js' --only-mapped"
   },
   "eslintConfig": {
     "extends": [
@@ -57,7 +58,9 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "identity-obj-proxy": "^3.0.0",
+    "node-sass": "^4.14.1",
     "prettier": "^2.2.0",
+    "source-map-explorer": "^2.5.0",
     "ts-jest": "^26.4.4"
   }
 }

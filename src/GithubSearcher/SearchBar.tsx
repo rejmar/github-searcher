@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 import { SEARCH_BAR_PLACEHOLDER, SEARCH_BUTTON } from "../constants";
+import styles from "./SearchBar.module.scss";
 
 type SearchBarProps = {
   onUserSet: (user: string) => void;
@@ -21,27 +22,17 @@ const SearchBar: React.FunctionComponent<SearchBarProps> = ({
   };
 
   return (
-    <header
-      data-testid={"search-bar"}
-      className={classNames(
-        "d-flex",
-        "justify-content-center",
-        "w-100",
-        "bg-white",
-        "border-bottom",
-        "p-4"
-      )}
-    >
+    <header data-testid={"search-bar"} className={styles.Header}>
       <input
         data-testid={"search-bar__input"}
-        className={classNames("")}
+        className={styles.Input}
         placeholder={SEARCH_BAR_PLACEHOLDER}
         value={userToSearch ?? undefined}
         onChange={handleUserToSearchSet}
       />
       <button
         data-testid={"search-bar__button"}
-        className={classNames("btn", "btn-dark", "ml-4")}
+        className={classNames(styles.Button)}
         onClick={handleUserSearch}
         disabled={!userToSearch}
       >
