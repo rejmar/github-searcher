@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import React from "react";
 import { GithubUserType, UserReposType } from "../../constants/types";
 import UserInfo from "./UserInfo";
@@ -13,18 +12,7 @@ const UserDetails: React.FunctionComponent<UserDetailsProps> = ({
   repos,
 }: UserDetailsProps) => {
   return (
-    <div
-      data-testid={"user-details"}
-      className={classNames(
-        "d-flex",
-        "flex-column",
-        "w-100",
-        "h-100",
-        "justify-content-center",
-        "border",
-        "border-primary"
-      )}
-    >
+    <div data-testid={"user-details"} className={"w-100"}>
       <UserInfo user={user ?? {}} />
       {repos.length > 0 && <UserRepos repos={repos ?? []} />}
     </div>

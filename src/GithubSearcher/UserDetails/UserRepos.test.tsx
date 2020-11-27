@@ -13,11 +13,12 @@ describe("UserRepos component tests", () => {
   ];
 
   it("should render and match snapshot with one repo", () => {
-    const { container, getByTestId } = render(
+    const { container, getByTestId, getByText } = render(
       <UserRepos repos={validReposMock} />
     );
 
     expect(getByTestId(/^user-repos$/)).toBeInTheDocument();
+    expect(getByText(/^Top repositories$/)).toBeInTheDocument();
     expect(getByTestId(/^user-repos__test-name$/)).toBeInTheDocument();
     expect(container).toMatchInlineSnapshot(`
       <div>

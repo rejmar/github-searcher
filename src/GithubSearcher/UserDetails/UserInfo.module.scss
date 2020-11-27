@@ -1,0 +1,19 @@
+@import "../../assets/main.scss";
+.Avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+}
+
+.Name {
+  display: flex;
+  align-self: flex-end;
+  word-wrap: break-word;
+  word-break: keep-all;
+}
+
+.Bio {
+  color: $darkgrey;
+  font-weight: 400;
+}

@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React, { useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { fetchUserInfo, fetchUsersRepos } from "../actions";
-import { ERROR_MESSAGE } from "../constants";
+import { ERROR_MESSAGE, NOT_FOUND_ERROR_MESSAGE } from "../constants";
 import {
   FetchErrorType,
   FetchGithubUserResponseType,
@@ -12,6 +12,7 @@ import {
 } from "../constants/types";
 import SearchBar from "./SearchBar";
 import UserDetails from "./UserDetails";
+import styles from "./GithubSearcher.module.scss";
 
 const GithubSearcher: React.FunctionComponent = () => {
   const [user, setUser] = useState<GithubUserType>();
@@ -25,6 +26,9 @@ const GithubSearcher: React.FunctionComponent = () => {
     setRepos([]);
   };
 
+  const generateErrorMessage = (message: string): string =>
+    message.includes("404") ? NOT_FOUND_ERROR_MESSAGE : ERROR_MESSAGE;
+
   const handleUserSearch = (user: string) => {
     setIsLoading(true);
     clearData();
@@ -35,10 +39,7 @@ const GithubSearcher: React.FunctionComponent = () => {
           res.data && setUser(res.data);
         })
         .catch((err: FetchErrorType) => {
-          err.message &&
-            setError(
-              err.message.includes("404") ? "User not found!" : ERROR_MESSAGE
-            );
+          err.message && setError(generateErrorMessage(err.message));
           setUser({});
         })
         .finally(() => {
@@ -49,9 +50,7 @@ const GithubSearcher: React.FunctionComponent = () => {
           res.data && setRepos(res.data);
         })
         .catch((err: FetchErrorType) => {
-          setError(
-            err.message.includes("404") ? "User not found" : ERROR_MESSAGE
-          );
+          setError(generateErrorMessage(err.message));
           setRepos([]);
         })
         .finally(() => {
@@ -61,38 +60,21 @@ const GithubSearcher: React.FunctionComponent = () => {
   };
 
   return (
-    <div
-      data-testid={"github-searcher"}
-      className={classNames(
-        "d-flex",
-        "flex-column",
-        "text-dark",
-        "justify-content-center",
-        "w-100"
-      )}
-    >
+    <div data-testid={"github-searcher"} className={styles.App}>
       <SearchBar onUserSet={handleUserSearch} />
-      <main
-        data-testid={"main"}
-        className={
-          "d-flex flex-column justify-content-center align-content-center w-100 h-100 bg-light"
-        }
-      >
+      <main data-testid={"main"} className={styles.Main}>
         {isLoading && (
           <Spinner
             data-testid={"spinner"}
-            className={"d-flex justify-content-center"}
+            className={styles.Spinner}
             animation="border"
           />
         )}
         {error ? (
           <section>
-            <h2
-              data-testid={"error"}
-              className={"d-flex justify-content-center h-100"}
-            >
+            <h1 data-testid={"error"} className={styles.Error}>
               {error}
-            </h2>
+            </h1>
           </section>
         ) : (
           user?.login && <UserDetails user={user} repos={repos} />

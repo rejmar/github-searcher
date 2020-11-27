@@ -5,12 +5,12 @@
   background: $violet;
   color: white;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 1rem;
   margin-left: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   padding: 0.5rem;
-  width: 11vh;
-  height: 6vh;
+  width: 9rem;
+  height: 3rem;
 }
 
 .Button:focus,
@@ -24,9 +24,9 @@
 .Input {
   border: none;
   background: $grey;
-  border-radius: 0.5rem;
+  border-radius: 0.6rem;
   width: 90vh;
-  height: 6vh;
+  height: 3rem;
   text-indent: 1rem;
 }
 
@@ -44,9 +44,20 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 15vw;
+  height: 7rem;
   padding: 2rem;
-  -webkit-box-shadow: 0 5px 5px $grey;
-  -moz-box-shadow: 0 5px 5px $grey;
-  box-shadow: 0 5px 5px $grey;
+  -webkit-box-shadow: 0 5px 5px $shadow;
+  -moz-box-shadow: 0 5px 5px $shadow;
+  box-shadow: 0 5px 5px $shadow;
+  z-index: 1000;
+}
+@media screen and (min-width: 450px) {
+  .Button {
+    width: 9rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .Button {
+    width: 12rem;
+  }
 }
