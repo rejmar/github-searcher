@@ -1,7 +1,35 @@
-import classNames from "classnames";
+/** @jsxImportSource @emotion/react */
+import styled from "@emotion/styled";
 import React from "react";
+import { colors } from "../../assets/styles";
 import { UserReposType } from "../../constants/types";
-import styles from "./UserRepos.module.scss";
+
+const Repo = styled.a({
+  background: "white",
+  padding: "1rem",
+  margin: "0.5rem 0",
+  borderRadius: "1rem",
+  WebkitBoxShadow: `0 3px 10px ${colors.shadow}`,
+  MozBoxShadow: `0 3px 10px ${colors.shadow}`,
+  boxShadow: `0 3px 10px ${colors.shadow}`,
+  textDecoration: "none",
+  color: colors.blue,
+
+  "&:hover, &:focus, &:active": {
+    textDecoration: "none",
+    color: colors.blue,
+  },
+});
+
+const Section = styled.section({
+  display: "flex",
+  flexDirection: "column",
+});
+
+const H4 = styled.h4({
+  marginTop: "1.5rem",
+  marginBottom: "1.5rem",
+});
 
 type UserReposProps = {
   repos: UserReposType[];
@@ -26,22 +54,21 @@ const UserRepos: React.FunctionComponent<UserReposProps> = ({
       : repos;
 
   return (
-    <section data-testid={"user-repos"} className={"d-flex flex-column"}>
-      <h4 className={classNames("my-3")}>Top repositories</h4>
+    <Section data-testid={"user-repos"}>
+      <H4>Top repositories</H4>
       {repos.length > 0 &&
         filteredRepos.map((repo: UserReposType) => (
-          <a
+          <Repo
             key={`${repo.html_url}__link`}
             data-testid={`user-repos__${repo.name}`}
-            className={styles.Repo}
             href={repo.html_url ?? ""}
             target="_blank"
             rel="noreferrer"
           >
             {repo.name}
-          </a>
+          </Repo>
         ))}
-    </section>
+    </Section>
   );
 };
 

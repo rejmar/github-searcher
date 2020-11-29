@@ -1,5 +1,5 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState } from "react";
-import { Spinner } from "react-bootstrap";
 import { fetchUserInfo, fetchUsersRepos } from "../actions";
 import { ERROR_MESSAGE, NOT_FOUND_ERROR_MESSAGE } from "../constants";
 import {
@@ -11,7 +11,34 @@ import {
 } from "../constants/types";
 import SearchBar from "./SearchBar";
 import UserDetails from "./UserDetails";
-import styles from "./GithubSearcher.module.scss";
+import styled from "@emotion/styled";
+import { colors } from "../assets/styles";
+import { ClipLoader } from "react-spinners";
+
+const App = styled.div({
+  display: "flex",
+  flexDirection: "column",
+  width: "100%",
+  height: "100%",
+});
+
+const Main = styled.main({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "flex-start",
+  height: "40rem",
+  padding: "2rem",
+  background: colors.light,
+});
+
+const Spinner = styled.div({
+  top: "50%",
+});
+
+const Error = styled.h1({
+  color: colors.violet,
+  fontWeight: 700,
+});
 
 const GithubSearcher: React.FunctionComponent = () => {
   const [user, setUser] = useState<GithubUserType>();
@@ -59,27 +86,26 @@ const GithubSearcher: React.FunctionComponent = () => {
   };
 
   return (
-    <div data-testid={"github-searcher"} className={styles.App}>
+    <App data-testid={"github-searcher"}>
       <SearchBar onUserSet={handleUserSearch} />
-      <main data-testid={"main"} className={styles.Main}>
-        {isLoading && (
-          <Spinner
+      <Main data-testid={"main"}>
+        <Spinner>
+          <ClipLoader
             data-testid={"spinner"}
-            className={styles.Spinner}
-            animation="border"
+            size={120}
+            color={colors.violet}
+            loading={isLoading}
           />
-        )}
+        </Spinner>
         {error ? (
           <section>
-            <h1 data-testid={"error"} className={styles.Error}>
-              {error}
-            </h1>
+            <Error data-testid={"error"}>{error}</Error>
           </section>
         ) : (
           user?.login && <UserDetails user={user} repos={repos} />
         )}
-      </main>
-    </div>
+      </Main>
+    </App>
   );
 };
 

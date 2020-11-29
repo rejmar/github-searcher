@@ -23,28 +23,29 @@ describe("UserInfo component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="Container"
           data-testid="user-info"
         >
           <header
-            class="d-flex flex-row mb-3"
+            class="css-qml3vj"
             data-testid="user-info__header"
           >
-            <img
-              alt="Avatar"
-              class="Avatar"
-              data-testid="user-info__header__avatar"
-              src="test-avatar"
-            />
+            <figure>
+              <img
+                alt="Avatar"
+                class="css-1fzxxdv"
+                data-testid="user-info__header__avatar"
+                src="test-avatar"
+              />
+            </figure>
             <h3
-              class="Name"
+              class="css-3tv9m1"
               data-testid="user-info__header__name"
             >
               Test Login
             </h3>
           </header>
           <p
-            class="Bio"
+            class="css-11ymjae"
             data-testid="user-info__bio"
           >
             test-bio
@@ -60,26 +61,27 @@ describe("UserInfo component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <div
-          class="Container"
           data-testid="user-info"
         >
           <header
-            class="d-flex flex-row mb-3"
+            class="css-qml3vj"
             data-testid="user-info__header"
           >
-            <img
-              alt="Avatar"
-              class="Avatar"
-              data-testid="user-info__header__avatar"
-              src=""
-            />
+            <figure>
+              <img
+                alt="Avatar"
+                class="css-1fzxxdv"
+                data-testid="user-info__header__avatar"
+                src=""
+              />
+            </figure>
             <h3
-              class="Name"
+              class="css-3tv9m1"
               data-testid="user-info__header__name"
             />
           </header>
           <p
-            class="Bio"
+            class="css-11ymjae"
             data-testid="user-info__bio"
           />
         </div>

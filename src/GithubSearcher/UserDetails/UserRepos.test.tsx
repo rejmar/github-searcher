@@ -23,16 +23,16 @@ describe("UserRepos component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <section
-          class="d-flex flex-column"
+          class="css-j7qwjs"
           data-testid="user-repos"
         >
           <h4
-            class="my-3"
+            class="css-i8cet8"
           >
             Top repositories
           </h4>
           <a
-            class="Repo"
+            class="css-40wrch"
             data-testid="user-repos__test-name"
             href="test-url"
             rel="noreferrer"
@@ -51,11 +51,11 @@ describe("UserRepos component tests", () => {
     expect(container).toMatchInlineSnapshot(`
       <div>
         <section
-          class="d-flex flex-column"
+          class="css-j7qwjs"
           data-testid="user-repos"
         >
           <h4
-            class="my-3"
+            class="css-i8cet8"
           >
             Top repositories
           </h4>
