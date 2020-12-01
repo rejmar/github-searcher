@@ -12,6 +12,18 @@ To build the app user needs to execute
 
 To run the app user needs to execute
 
+### `yarn start`
+
+## Building application
+
+To build the app user needs to execute
+
+### `yarn run build`
+
+You can analyze production script by running:
+
+### `yarn run analyze`
+
 ##
 
 Enjoy your time with Github Searcher :)!
